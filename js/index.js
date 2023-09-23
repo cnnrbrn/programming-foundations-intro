@@ -1,31 +1,35 @@
-const firstName = "john";
-const lastName = "smith";
+// let age = 7;
+// console.log(age);
+// age++;
+// console.log(age);
+const container = document.querySelector("#container");
 
-const name = `${firstName} ${lastName}`;
+// for (let i = 1; i <= 10; i++) {
+// 	console.log(i);
+// 	const paragraph = document.createElement("p");
+// 	paragraph.innerText = i;
+// 	container.append(paragraph);
+// }
 
-// const age = "44";
-const ageAsNumber = 38;
+const colours = ["red", "blue", "green", "yellow", "pink", "black"];
+console.log(colours);
+// var colour = colours[4];
+const arrayLength = colours.length;
+console.log("arrayLength", arrayLength);
 
-const isOld = false;
+for (let i = 0; i < colours.length; i++) {
+	// console.log(i);
 
-// console.log(typeof isOld);
+	console.log(i % 2);
 
-var number1 = "7";
-var number2 = "7";
+	// console.log(colours[i]);
 
-// strict comparison operator
-if (number1 === number2) {
-	console.log("they are equal");
-} else {
-	console.log("equal");
+	const paragraph = document.createElement("p");
+	paragraph.innerText = colours[i];
+
+	if (i % 2 === 1) {
+		paragraph.classList.add("colour");
+	}
+
+	container.append(paragraph);
 }
-
-// const heading = document.querySelector("#heading");
-
-// heading.innerText = name;
-
-// console.log(heading);
-
-// // const
-
-// // let
