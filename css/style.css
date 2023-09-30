@@ -9,3 +9,13 @@
 	background: lightgray;
 	color: black;
 } */
+
+body {
+	background: lightgray;
+}
+
+.card {
+	padding: 1rem;
+	background: white;
+	margin-bottom: 0.5rem;
+}

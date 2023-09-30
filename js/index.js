@@ -1,33 +1,136 @@
+const books = [
+	{
+		id: 123,
+		title: "Great book",
+		inStock: false,
+		genres: ["adventure", "sci-fi"],
+		publisher: {
+			name: "Some publisher",
+			address: "Somewhere",
+		},
+	},
+	{
+		id: 124,
+		title: "Another Great Book",
+		inStock: true,
+		genres: ["fantasy", "adventure"],
+		publisher: {
+			address: "Another Place",
+		},
+	},
+	{
+		id: 125,
+		title: "Yet Another Great Book",
+		inStock: true,
+		genres: ["mystery"],
+	},
+	{
+		id: 126,
+		title: "Fourth Great Book",
+		inStock: false,
+		genres: ["romance"],
+		publisher: {
+			address: "Fourth Place",
+		},
+	},
+	{
+		id: 127,
+		title: "Fifth Great Book",
+		inStock: true,
+		genres: ["history"],
+		publisher: {
+			name: "Fifth Publisher",
+			address: "Fifth Place",
+		},
+	},
+	{
+		id: 128,
+		title: "Sixth Great Book",
+		inStock: false,
+		genres: ["science"],
+		publisher: {
+			name: "Sixth Publisher",
+			address: "Sixth Place",
+		},
+	},
+	{
+		id: 129,
+		title: "Seventh Great Book",
+		inStock: true,
+		genres: ["biography"],
+		publisher: {
+			name: "Seventh Publisher",
+			address: "Seventh Place",
+		},
+	},
+	{
+		id: 130,
+		title: "Eighth Great Book",
+		inStock: false,
+		genres: ["philosophy"],
+		publisher: {
+			name: "Eighth Publisher",
+			address: "Eighth Place",
+		},
+	},
+	{
+		id: 131,
+		title: "Ninth Great Book",
+		inStock: true,
+		genres: ["psychology"],
+		publisher: {
+			name: "Ninth Publisher",
+			address: "Ninth Place",
+		},
+	},
+];
+
 const container = document.querySelector("#container");
 
-const book = {
-	id: 123,
-	title: "Great book",
-	inStock: false,
-	genres: ["adventure", "sci-fi"],
-	publisher: {
-		name: "Some publisher",
-		address: "Somewhere",
-	},
-};
+for (let i = 0; i < books.length; i++) {
+	console.log(i);
 
-console.log(book.publisher.name);
+	// if (i === 3) {
+	// 	break;
+	// }
 
-const heading = document.createElement("h1");
-heading.innerText = book.title;
-container.append(heading);
+	if (books[i].inStock === false) {
+		continue;
+	}
 
-const genres = document.createElement("p");
-genres.innerText = book.genres;
-container.append(genres);
+	const card = document.createElement("div");
+	card.classList.add("card");
 
-const inStock = document.createElement("p");
-inStock.innerText = "In stock: ";
-const inStockValue = document.createElement("b");
-inStockValue.innerText = book.inStock;
-inStock.append(inStockValue);
-container.append(inStock);
+	const heading = document.createElement("h2");
+	heading.innerText = books[i].title;
+	card.append(heading);
 
-const publisherName = document.createElement("p");
-publisherName.innerText = book.publisher.name;
-container.append(publisherName);
+	const genres = document.createElement("p");
+	genres.innerText = books[i].genres;
+	card.append(genres);
+
+	const publisherName = document.createElement("p");
+	publisherName.innerText = books[i].publisher?.name ?? "No name available";
+	card.append(publisherName);
+
+	container.append(card);
+}
+
+// const heading = document.createElement("h1");
+// heading.innerText = book.title;
+// container.append(heading);
+
+// const genres = document.createElement("p");
+// genres.innerText = book.genres;
+// container.append(genres);
+
+// const inStock = document.createElement("p");
+// inStock.innerText = "In stock: ";
+// const inStockValue = document.createElement("b");
+// inStockValue.innerText = book.inStock;
+// inStock.append(inStockValue);
+// container.append(inStock);
+
+// const publisherName = document.createElement("p");
+// publisherName.innerText = book.publisher.name;
+// container.append(publisherName);
