@@ -1,7 +1,7 @@
 const books = [
 	{
 		id: 123,
-		title: "Great book",
+		"book-title": "Great book",
 		inStock: false,
 		genres: ["adventure", "sci-fi"],
 		publisher: {
@@ -11,7 +11,7 @@ const books = [
 	},
 	{
 		id: 124,
-		title: "Another Great Book",
+		"book-title": "Another Great Book",
 		inStock: true,
 		genres: ["fantasy", "adventure"],
 		publisher: {
@@ -20,13 +20,13 @@ const books = [
 	},
 	{
 		id: 125,
-		title: "Yet Another Great Book",
+		"book-title": "Yet Another Great Book",
 		inStock: true,
 		genres: ["mystery"],
 	},
 	{
 		id: 126,
-		title: "Fourth Great Book",
+		"book-title": "Fourth Great Book",
 		inStock: false,
 		genres: ["romance"],
 		publisher: {
@@ -35,7 +35,7 @@ const books = [
 	},
 	{
 		id: 127,
-		title: "Fifth Great Book",
+		"book-title": "Fifth Great Book",
 		inStock: true,
 		genres: ["history"],
 		publisher: {
@@ -45,7 +45,7 @@ const books = [
 	},
 	{
 		id: 128,
-		title: "Sixth Great Book",
+		"book-title": "Sixth Great Book",
 		inStock: false,
 		genres: ["science"],
 		publisher: {
@@ -55,7 +55,7 @@ const books = [
 	},
 	{
 		id: 129,
-		title: "Seventh Great Book",
+		"book-title": "Seventh Great Book",
 		inStock: true,
 		genres: ["biography"],
 		publisher: {
@@ -65,7 +65,7 @@ const books = [
 	},
 	{
 		id: 130,
-		title: "Eighth Great Book",
+		"book-title": "Eighth Great Book",
 		inStock: false,
 		genres: ["philosophy"],
 		publisher: {
@@ -75,7 +75,7 @@ const books = [
 	},
 	{
 		id: 131,
-		title: "Ninth Great Book",
+		"book-title": "Ninth Great Book",
 		inStock: true,
 		genres: ["psychology"],
 		publisher: {
@@ -87,34 +87,57 @@ const books = [
 
 const container = document.querySelector("#container");
 
-for (let i = 0; i < books.length; i++) {
-	console.log(i);
+books.forEach(function (book) {
+	console.log("foreach", book);
 
-	// if (i === 3) {
-	// 	break;
-	// }
+	if (book.inStock === false) {
+		const card = document.createElement("div");
+		card.classList.add("card");
 
-	if (books[i].inStock === false) {
-		continue;
+		const heading = document.createElement("h2");
+		heading.innerText = book["book-title"];
+		card.append(heading);
+
+		const genres = document.createElement("p");
+		genres.innerText = book.genres;
+		card.append(genres);
+
+		const publisherName = document.createElement("p");
+		publisherName.innerText = book.publisher?.name ?? "No name available";
+		card.append(publisherName);
+
+		container.append(card);
 	}
+});
 
-	const card = document.createElement("div");
-	card.classList.add("card");
+// for (let i = 0; i < books.length; i++) {
+// 	console.log(i);
 
-	const heading = document.createElement("h2");
-	heading.innerText = books[i].title;
-	card.append(heading);
+// 	// if (i === 3) {
+// 	// 	break;
+// 	// }
 
-	const genres = document.createElement("p");
-	genres.innerText = books[i].genres;
-	card.append(genres);
+// 	if (books[i].inStock === false) {
+// 		continue;
+// 	}
 
-	const publisherName = document.createElement("p");
-	publisherName.innerText = books[i].publisher?.name ?? "No name available";
-	card.append(publisherName);
+// 	const card = document.createElement("div");
+// 	card.classList.add("card");
 
-	container.append(card);
-}
+// 	const heading = document.createElement("h2");
+// 	heading.innerText = books[i].title;
+// 	card.append(heading);
+
+// 	const genres = document.createElement("p");
+// 	genres.innerText = books[i].genres;
+// 	card.append(genres);
+
+// 	const publisherName = document.createElement("p");
+// 	publisherName.innerText = books[i].publisher?.name ?? "No name available";
+// 	card.append(publisherName);
+
+// 	container.append(card);
+// }
 
 // const heading = document.createElement("h1");
 // heading.innerText = book.title;
