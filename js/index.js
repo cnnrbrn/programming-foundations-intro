@@ -86,29 +86,36 @@ const books = [
 ];
 
 const container = document.querySelector("#container");
+const button = document.querySelector("#displayBooks");
 
-books.forEach(function (book) {
-	console.log("foreach", book);
+button.addEventListener("mouseover", displayBooks);
 
-	if (book.inStock === false) {
-		const card = document.createElement("div");
-		card.classList.add("card");
+function displayBooks() {
+	books.forEach(function (book) {
+		console.log("foreach", book);
 
-		const heading = document.createElement("h2");
-		heading.innerText = book["book-title"];
-		card.append(heading);
+		if (book.inStock === false) {
+			const card = document.createElement("div");
+			card.classList.add("card");
 
-		const genres = document.createElement("p");
-		genres.innerText = book.genres;
-		card.append(genres);
+			const heading = document.createElement("h2");
+			heading.innerText = book["book-title"];
+			card.append(heading);
 
-		const publisherName = document.createElement("p");
-		publisherName.innerText = book.publisher?.name ?? "No name available";
-		card.append(publisherName);
+			const genres = document.createElement("p");
+			genres.innerText = book.genres;
+			card.append(genres);
 
-		container.append(card);
-	}
-});
+			const publisherName = document.createElement("p");
+			publisherName.innerText = book.publisher?.name ?? "No name available";
+			card.append(publisherName);
+
+			container.append(card);
+		}
+	});
+}
+
+// displayBooks();
 
 // for (let i = 0; i < books.length; i++) {
 // 	console.log(i);
