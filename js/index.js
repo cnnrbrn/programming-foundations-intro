@@ -86,81 +86,55 @@ const books = [
 ];
 
 const container = document.querySelector("#container");
-const button = document.querySelector("#displayBooks");
 
-button.addEventListener("mouseover", displayBooks);
+const menuButton = document.querySelector("#menu-button");
 
-function displayBooks() {
-	books.forEach(function (book) {
-		console.log("foreach", book);
+menuButton.addEventListener("click", toggleMenu);
 
-		if (book.inStock === false) {
-			const card = document.createElement("div");
-			card.classList.add("card");
+// console.log(typeof menuButton.addEventListener);
 
-			const heading = document.createElement("h2");
-			heading.innerText = book["book-title"];
-			card.append(heading);
+function toggleMenu(event) {
+	console.log(event.target.innerText);
 
-			const genres = document.createElement("p");
-			genres.innerText = book.genres;
-			card.append(genres);
+	const button = event.target;
 
-			const publisherName = document.createElement("p");
-			publisherName.innerText = book.publisher?.name ?? "No name available";
-			card.append(publisherName);
+	if (button.innerText === "Open") {
+		button.innerText = "Close";
+	} else {
+		button.innerText = "Open";
+	}
 
-			container.append(card);
-		}
-	});
+	const menu = document.querySelector("#menu");
+	menu.classList.toggle("open");
+
+	// menu.style.display = "block";
+	// menu.style.backgroundColor = "green";
+
+	// console.log(menu.style);
 }
 
-// displayBooks();
+// parameters = way to pass values in to a function
+// return = the way to return a value from a function
 
-// for (let i = 0; i < books.length; i++) {
-// 	console.log(i);
+// function addNumbers(numberOne, numberTwo) {
+// 	// console.log(numberOne + numberTwo);
 
-// 	// if (i === 3) {
-// 	// 	break;
-// 	// }
-
-// 	if (books[i].inStock === false) {
-// 		continue;
-// 	}
-
-// 	const card = document.createElement("div");
-// 	card.classList.add("card");
-
-// 	const heading = document.createElement("h2");
-// 	heading.innerText = books[i].title;
-// 	card.append(heading);
-
-// 	const genres = document.createElement("p");
-// 	genres.innerText = books[i].genres;
-// 	card.append(genres);
-
-// 	const publisherName = document.createElement("p");
-// 	publisherName.innerText = books[i].publisher?.name ?? "No name available";
-// 	card.append(publisherName);
-
-// 	container.append(card);
+// 	const total = numberOne + numberTwo;
+// 	console.log(total);
+// 	return total;
 // }
 
-// const heading = document.createElement("h1");
-// heading.innerText = book.title;
-// container.append(heading);
+// const sum = addNumbers(2, 3);
 
-// const genres = document.createElement("p");
-// genres.innerText = book.genres;
-// container.append(genres);
+// // console.log("sum", sum);
 
-// const inStock = document.createElement("p");
-// inStock.innerText = "In stock: ";
-// const inStockValue = document.createElement("b");
-// inStockValue.innerText = book.inStock;
-// inStock.append(inStockValue);
-// container.append(inStock);
+function functionDemo(functionToDemo) {
+	// console.log(typeof functionToDemo);
+	functionToDemo();
+}
 
-// const publisherName = document.createElement("p");
-// publisherName.innerText = book.publisher.name;
-// container.append(publisherName);
+function doSomething() {
+	console.log("I AM HERE");
+}
+
+functionDemo(doSomething);
